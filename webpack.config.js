@@ -115,7 +115,8 @@ const buildConfig = baseConfig.clone()
             gui: './src/playground/index.jsx',
             blocksonly: './src/playground/blocks-only.jsx',
             compatibilitytesting: './src/playground/compatibility-testing.jsx',
-            player: './src/playground/player.jsx'
+            player: './src/playground/player.jsx',
+            mobile: './src/playground/mobile.jsx'
         },
         output: {
             path: path.resolve(__dirname, 'build')
@@ -147,6 +148,13 @@ const buildConfig = baseConfig.clone()
         filename: 'player.html',
         template: 'src/playground/index.ejs',
         title: 'Scratch 3.0 GUI: Player Example'
+    }))
+    .addPlugin(new HtmlWebpackPlugin({
+        ...commonHtmlWebpackPluginOptions,
+        chunks: ['mobile'],
+        filename: 'mobile.html',
+        template: 'src/playground/mobile.ejs',
+        title: 'Scratch 3.0 GUI - Mobile'
     }))
     .addPlugin(new CopyWebpackPlugin({
         patterns: [

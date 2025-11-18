@@ -23,8 +23,18 @@
     "test:integration": "jest --maxWorkers=4 test[\\\\/]integration",
     "test:lint": "eslint . --ext .js,.jsx",
     "test:unit": "jest test[\\\\/]unit",
-    "test:smoke": "jest --runInBand test[\\\\/]smoke",
-    "watch": "webpack --watch"
+    "test:smoke": "jest --runInBand test[\\/]smoke",
+    "watch": "webpack --watch",
+    "capacitor:init": "npx cap init",
+    "capacitor:add:android": "npx cap add android",
+    "capacitor:add:ios": "npx cap add ios",
+    "capacitor:sync": "npx cap sync",
+    "capacitor:copy": "npx cap copy",
+    "capacitor:open:android": "npx cap open android",
+    "capacitor:open:ios": "npx cap open ios",
+    "mobile:build": "npm run build && npm run capacitor:sync",
+    "mobile:android": "npm run mobile:build && npm run capacitor:open:android",
+    "mobile:ios": "npm run mobile:build && npm run capacitor:open:ios"
   },
   "config": {
     "commitizen": {
@@ -110,6 +120,10 @@
     "@babel/plugin-transform-async-to-generator": "7.27.1",
     "@babel/preset-env": "7.28.5",
     "@babel/preset-react": "7.28.5",
+    "@capacitor/android": "^7.4.4",
+    "@capacitor/cli": "^7.4.4",
+    "@capacitor/core": "^7.4.4",
+    "@capacitor/ios": "^7.4.4",
     "@commitlint/cli": "17.8.1",
     "@commitlint/config-conventional": "17.8.1",
     "babel-core": "7.0.0-bridge.0",
